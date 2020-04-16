@@ -1,0 +1,91 @@
+//All the JS for both validation and verification.
+//Validation function
+function validate() {
+	
+	//Doing validation by error counting
+    var errors = 0;
+	var username = document.getElementById("name").value;
+	var id = document.getElementById("id").value;
+	var password = document.getElementById("password").value;
+	var email = document.getElementById("email").value;
+	
+	//The following if statements check validity of input in fields. If invalid, it iterates +1 into error count
+	//checks if username field is empty
+	if (username == "" || username == 0){
+		errors++;
+		alert("Invalid Username\n" + "Please enter a valid username.");
+	}
+	
+	//checks ID length
+	if (id == '' || id.length < 8 || id.length > 8) {
+		errors++;
+		alert("Invalid ID\n" + "ID must be 8 digits long.")
+	}
+
+	//checks password based off multiple parameters
+	if (password == "" || password.length < 8 || password.search(/[A-Z]/) < 0 || password.search(/[0-9]/) < 0) {
+		errors++;
+		alert("Invalid Password\n" + "Password must contain at least 8 or more characters, 1 capital letter, and 1 numeric character.")
+	}
+	
+	//Once checkbox is checked (true) it will search for your email address along with regex valid email parameters	
+	if (document.getElementById("checkbox").checked === false) {
+		if (email == "" || email == 0) {
+			errors = 0;
+		}
+	} else {
+		if (document.getElementById("checkbox").checked === true) {
+			if (email.search(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/) < 0) {
+				errors++;
+				alert("Invalid Email Address\n" + "Please enter a valid email address.");
+			}
+		}	
+	}
+
+	//Once validation passes error check (where error = 0), runs verify function
+	if (errors == 0){
+		verify();
+	}     
+}
+
+//Verify function for log in after validation
+function verify() {
+	
+	//aligning list of users and credentials with library below
+    var realtors = [
+        { name: "Ryan", id: "12345678", password: "Password1" },
+        { name: "Maura", id: "23456789", password: "Password2" },
+	];
+
+    var user = {
+        name: document.getElementById("name").value,
+        id: document.getElementById("id").value,
+        password: document.getElementById("password").value
+    }
+	
+	//credentials get aligned in this function, checks, then welcomes user
+    for (var r of realtors) {
+        if (userEqual(r, user)) {
+            welcome(user);
+            return;
+        }
+    }
+	
+	//if credentials don't align, alerts user
+    alert("Username, password, or ID does not match");
+	
+}
+
+//basic function to create an equality between two objects, in this case: user and realtors.
+function userEqual(x, y) {
+    for (var f in x)
+        if (x[f] != y[f])
+            return false;
+    return true;
+}
+
+//welcome message for user separated from other fucntion. Makes it easier to call in my opinion.
+function welcome(user) {
+    alert("Welcome " + user.name + "!");
+}
+

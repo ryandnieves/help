@@ -1,0 +1,48 @@
+body {
+    background-color: lightblue;
+	text-align: center;
+	font-family: "Helvetica", "sans-serif", "Arial";
+	font-size: 20px;
+	line-height: 34px;
+	padding: 21px;
+}
+
+form {
+    margin: auto;
+    max-width: 680px;
+}
+
+div.welcome {
+	font-size: auto;
+	margin-bottom: 34px;
+}
+
+div.title {
+    font-size: 32px;
+	line-height: 51px;
+	margin-top: 55px;
+    margin-bottom: 21px;
+}
+
+div.input-wrapper {
+    border-radius: 15px;
+    font-size: 20px;
+    padding: 25px;
+}
+
+input[type=text], input[type=number], input[type=password], select {
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    outline-style: none;
+    padding: 10px;
+    border-bottom: 2px solid grey;
+    width: 70%;
+}
+
+input[type=button] {
+    font-family: inherit;
+    font-size: inherit;
+    margin: 35px;
+}
+

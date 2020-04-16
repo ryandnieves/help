@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Assignment 2 IT202</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+	<script src="validation.js"></script>
+    <form action="" method="POST">
+        <div class="title">
+            <h2>House Hunter's Realty</h2>
+        </div>
+		<div class="welcome">
+			<p>Please enter your credentials to proceed</p>
+		</div>
+        <div class="input-wrapper">
+            <span>Username</span>
+            <br>
+            <input type="text" id="name" name="name" placeholder="Username" />
+            <br>
+        </div>
+		<div class="input-wrapper">
+            <span>Password</span>
+            <br>
+            <input type="password" id="password" name="password" placeholder="Password" />
+            <br>
+        </div>
+        <div class="input-wrapper">
+            <span>ID</span>
+            <br>
+            <input type="number" id="id" name="id" placeholder="ID" />
+            <br>
+        </div>
+        <div class="input-wrapper">
+            <span>Email</span>
+            <br>
+            <input type="text" id="email" name="email" placeholder="Email" />
+            <br>
+        </div>
+        <div class="input-wrapper">
+            <span>Transaction</span>
+            <br>
+            <select id="transaction" name="transaction">
+                <option value="schedule">Schedule a Showing</option>
+                <option value="remove">Remove a Showing</option>
+                <option value="search">Search Realtor's Schedule</option>
+                <option value="register">Register/Create a New Account</option>
+            </select><br>
+        </div>
+        <div class="input-wrapper">
+            <label>
+                <input type="checkbox" id="checkbox" name="checkbox" />
+                <span>Email Confirmation</span>
+                <br>
+            </label>
+            <input type="button" value="Submit" onclick="validate()" />
+        </div>
+    </form>
+</div>
+</body>
+
+</html>
